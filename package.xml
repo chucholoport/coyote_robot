@@ -2,7 +2,7 @@
 <package format="2">
   <!--
   coyote_robot
-  -------------------------------
+  ===============================
   Educational ROS package for controlling a JetBot-like robot
   using Arduino UNO + L298N motor driver + encoders.
   -->
