@@ -9,7 +9,7 @@
   <name>coyote_robot</name>
   <version>0.0.1</version>
   <description>
-    Custom educational package for single-wheel and full robot control
+    Custom educational package for single-wheel and full robot control.
     (motor test, camera, and LiDAR integration).
   </description>
 
