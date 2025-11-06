@@ -1,0 +1,40 @@
+<launch>
+    <!--
+    motor_test.launch
+    --------------------------------------------
+    Launch file for testing a single motor connected to Arduino via L298N.
+    It runs:
+      - rosserial_python to bridge Arduino <-> ROS topics
+      - motor_test.py node for interactive control
+    Developed for ROS Melodic + Python 2.7
+    -->
+
+    <!-- ========== 1. rosserial_node: Connects Arduino UNO ========== -->
+    <node
+        pkg="rosserial_python"
+        type="serial_node.py"
+        name="coyote_arduino_bridge"
+        output="screen"
+        args="/dev/ttyACM0" >
+        <!--
+        'args' must point to the Arduino serial device.
+        Common values:
+          /dev/ttyACM0 → Arduino UNO
+          /dev/ttyUSB0 → Clones or USB-Serial adapters
+        -->
+    </node>
+
+    <!-- ========== 2. Coyote motor test node ========== -->
+    <node
+        pkg="coyote_robot"
+        type="motor_test.py"
+        name="coyote_motor_test"
+        output="screen">
+        <!--
+        This node publishes /cmd_vel (Twist) to control motor speed
+        and subscribes to /wheel_rpm (Float32) for encoder feedback.
+        -->
+    </node>
+
+</launch>
+

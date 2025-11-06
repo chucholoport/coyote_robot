@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<package format="2">
+  <!--
+  coyote_robot
+  -------------------------------
+  Educational ROS package for controlling a JetBot-like robot
+  using Arduino UNO + L298N motor driver + encoders.
+  -->
+  <name>coyote_robot</name>
+  <version>0.0.1</version>
+  <description>
+    Custom educational package for single-wheel and full robot control
+    (motor test, camera, and LiDAR integration).
+  </description>
+
+  <!-- Maintainer information -->
+  <maintainer email="jesus.loport@outlook.com">Coyote Robotics Lab</maintainer>
+
+  <!-- License information -->
+  <license>MIT</license>
+
+  <!-- Core dependencies -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Build dependencies -->
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+
+  <!-- Build Export dependencies -->
+  <build_export_depend>geometry_msgs</build_export_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+
+  <!-- Runtime dependencies -->
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>rosserial_arduino</exec_depend>
+  <exec_depend>rosserial_python</exec_depend>
+
+  <!-- Optional: ROS C++ client library -->
+  <exec_depend>roscpp</exec_depend>
+
+  <!-- Export tag (empty but required) -->
+  <export></export>
+</package>

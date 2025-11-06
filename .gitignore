@@ -1,0 +1,16 @@
+# catkin / ROS
+build/
+devel/
+*.pyc
+__pycache__/
+*.swp
+*~ 
+.DS_Store
+
+# Arduino build artifacts
+*.hex
+*.o
+
+# Editor files
+.vscode/
+.idea/
