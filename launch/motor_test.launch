@@ -1,7 +1,7 @@
 <launch>
     <!--
     motor_test.launch
-    --------------------------------------------
+    ============================================
     Launch file for testing a single motor connected to Arduino via L298N.
     It runs:
       - rosserial_python to bridge Arduino <-> ROS topics
@@ -37,4 +37,3 @@
     </node>
 
 </launch>
-

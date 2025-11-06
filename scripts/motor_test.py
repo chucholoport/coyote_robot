@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 motor_test.py
----------------------------------------
+=======================================
 Educational ROS node for controlling a single motor through Arduino (rosserial).
 
 This node publishes geometry_msgs/Twist messages to /cmd_vel,
