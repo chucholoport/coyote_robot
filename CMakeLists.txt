@@ -170,7 +170,7 @@ include_directories(
 catkin_install_python(
   PROGRAMS
    scripts/motor_test.py
-#    scripts/wheel_controller.py
+   scripts/coyote_robot.py
 #    scripts/lidar_reader.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

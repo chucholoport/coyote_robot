@@ -30,6 +30,7 @@ Asegúrate de tener instalados los siguientes paquetes ROS en tu sistema:
 sudo apt update
 sudo apt install ros-melodic-rosserial-arduino ros-melodic-rosserial-python
 sudo apt install ros-melodic-geometry-msgs ros-melodic-std-msgs
+sudo apt install ros-melodic-teleop-twist-keyboard
 ```
 
 También necesitas tener **Arduino IDE** instalado y configurado para usar `ros_lib`:
@@ -60,8 +61,8 @@ source devel/setup.bash
 Conecta tu **Arduino UNO** al puerto USB y abre el sketch:
 
 ```bash
-cd ~/catkin_ws/src/coyote_robot/arduino/motor_test
-arduino motor_test.ino
+cd ~/catkin_ws/src/coyote_robot/arduino/coyote_robot
+arduino coyote_robot.ino
 ```
 
 Selecciona:
@@ -96,12 +97,12 @@ Selecciona:
 
 ## Ejecución en ROS
 
-1. **Sube el código Arduino** (`motor_test.ino`)
+1. **Sube el código Arduino** (`coyote_robot.ino`)
 
 2. **Lanza el nodo ROS** desde tu workspace:
 
     ```bash
-    roslaunch coyote_robot motor_test.launch
+    roslaunch coyote_robot coyote_robot.launch
     ```
 
     Deberias ver algo similar a esto:
@@ -151,13 +152,7 @@ Selecciona:
     [INFO] [1762450807.637277]: Measured RPM: 0.00
     ```
 
-3. En el entorno de **ROS Melodic (Python 2.7)**, instala el paquete `teleop_twist_keyboard`:
-
-    ```bash
-    sudo apt install ros-melodic-teleop-twist-keyboard
-    ```
-
-4. En otra terminal, ejecuta el nodo de teleoperación:
+3. En otra terminal, ejecuta el nodo de teleoperación:
 
     ```bash
     rosrun teleop_twist_keyboard teleop_twist_keyboard.py
@@ -179,7 +174,7 @@ Selecciona:
     k: detener movimiento
     ```
 
-5. Puedes observar los mensajes que se están publicando hacia el Arduino con:
+4. Puedes observar los mensajes que se están publicando hacia el Arduino con:
     
     ```bash
     rostopic echo /cmd_vel

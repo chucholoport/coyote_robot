@@ -9,7 +9,7 @@
   <name>coyote_robot</name>
   <version>0.0.1</version>
   <description>
-    Custom educational package for single-wheel and full robot control
+    Custom educational package for single-wheel and full robot control.
     (motor test, camera, and LiDAR integration).
   </description>
 
@@ -26,6 +26,8 @@
   <build_depend>geometry_msgs</build_depend>
   <build_depend>rospy</build_depend>
   <build_depend>std_msgs</build_depend>
+  <build_depend>rosserial_arduino</build_depend>
+  <build_depend>rosserial_python</build_depend>
 
   <!-- Build Export dependencies -->
   <build_export_depend>geometry_msgs</build_export_depend>

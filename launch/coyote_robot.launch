@@ -1,0 +1,41 @@
+<launch>
+    <!--
+    coyote_robot.launch
+    ============================================
+    Launch file for testing full robot movement using Arduino UNO + L298N.
+
+    It runs:
+      - rosserial_python to bridge Arduino <-> ROS topics
+      - coyote_robot.py node to publish forward Twist commands
+
+    Developed for ROS Melodic + Python 2.7
+    -->
+
+    <!-- ========== 1. rosserial_node: Connects Arduino UNO ========== -->
+    <node
+        pkg="rosserial_python"
+        type="serial_node.py"
+        name="coyote_arduino_bridge"
+        output="screen"
+        args="/dev/ttyACM0" >
+        <!--
+        'args' must point to the Arduino serial device.
+        Common values:
+          /dev/ttyACM0 → Arduino UNO
+          /dev/ttyUSB0 → Clones or USB-Serial adapters
+        -->
+    </node>
+
+    <!-- ========== 2. Coyote robot controller node ========== -->
+    <node
+        pkg="coyote_robot"
+        type="coyote_robot.py"
+        name="coyote_robot_controller"
+        output="screen">
+        <!--
+        This node publishes /cmd_vel (Twist) at 2 Hz to simulate forward motion.
+        Useful for testing motor wiring and basic movement.
+        -->
+    </node>
+
+</launch>
