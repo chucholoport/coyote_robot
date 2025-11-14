@@ -5,7 +5,9 @@
   ===============================
   Educational ROS package for controlling a JetBot-like robot
   using Arduino UNO + L298N motor driver + encoders.
+  Includes motor test, camera, and LiDAR integration.
   -->
+
   <name>coyote_robot</name>
   <version>0.0.1</version>
   <description>
@@ -28,11 +30,17 @@
   <build_depend>std_msgs</build_depend>
   <build_depend>rosserial_arduino</build_depend>
   <build_depend>rosserial_python</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>hector_mapping</build_depend>
+  <build_depend>map_server</build_depend>
 
   <!-- Build Export dependencies -->
   <build_export_depend>geometry_msgs</build_export_depend>
   <build_export_depend>rospy</build_export_depend>
   <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>tf</build_export_depend>
+  <build_export_depend>hector_mapping</build_export_depend>
+  <build_export_depend>map_server</build_export_depend>
 
   <!-- Runtime dependencies -->
   <exec_depend>geometry_msgs</exec_depend>
@@ -40,6 +48,9 @@
   <exec_depend>std_msgs</exec_depend>
   <exec_depend>rosserial_arduino</exec_depend>
   <exec_depend>rosserial_python</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>hector_mapping</exec_depend>
+  <exec_depend>map_server</exec_depend>
 
   <!-- Optional: ROS C++ client library -->
   <exec_depend>roscpp</exec_depend>
