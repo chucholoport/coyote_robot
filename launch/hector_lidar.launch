@@ -2,7 +2,7 @@
     <!--
     hector_lidar.launch
     ============================================
-    Launch file for running HectorSLAM using only LIDAR (no odometry).
+    Launch file for running HectorSLAM using LIDAR and odometry.
 
     It runs:
       - hector_mapping to perform SLAM based on laser scans
@@ -17,14 +17,14 @@
         type="hector_mapping"
         name="hector_mapping"
         output="screen">
-        <!--
-        SLAM node that estimates robot pose using laser scan matching.
-        No odometry or IMU required.
-        -->
         <param name="base_frame" value="base_link"/>
         <param name="odom_frame" value="odom"/>
         <param name="map_frame" value="map"/>
         <param name="pub_map_odom_transform" value="true"/>
+        <param name="use_tf_scan_transformation" value="true"/>
+        <param name="use_tf_pose_start_estimate" value="true"/>
+        <param name="map_update_interval" value="2.0"/>
+        <param name="transform_tolerance" value="0.2"/>
     </node>
 
     <!-- ========== 2. Static transform: base_link → laser ========== -->
@@ -32,11 +32,5 @@
         pkg="tf"
         type="static_transform_publisher"
         name="base_to_laser"
-        args="0 0 0 0 0 0 base_link laser 100">
-        <!--
-        Publishes a fixed transform between robot base and LIDAR.
-        Adjust XYZ/RPY if LIDAR is offset physically.
-        -->
-    </node>
-
+        args="0 0 0 0 0 0 base_link laser 100"/>
 </launch>
