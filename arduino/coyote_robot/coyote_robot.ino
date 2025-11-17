@@ -68,6 +68,9 @@ float left_rpm = 0.0f;
 float right_rpm = 0.0f;
 unsigned long last_time = 0;
 
+const int LEFT_MOTOR_DIR  = 1;   // normal
+const int RIGHT_MOTOR_DIR = -1;  // inverted
+
 // ============= ROS Setup =============
 ros::NodeHandle nh;
 std_msgs::Float32MultiArray rpm_msg;
@@ -110,8 +113,8 @@ void cmdVelCallback(const geometry_msgs::Twist &msg)
   float left_speed  = linear - (angular * WHEEL_BASE / 2.0f);
   float right_speed = linear + (angular * WHEEL_BASE / 2.0f);
 
-  setMotor(ENA, IN1, IN2, left_speed);
-  setMotor(ENB, IN3, IN4, right_speed);
+  setMotor(ENA, IN1, IN2, LEFT_MOTOR_DIR  * left_speed);
+  setMotor(ENB, IN3, IN4, RIGHT_MOTOR_DIR * right_speed);
 }
 
 // ============= ROS Sub =============
