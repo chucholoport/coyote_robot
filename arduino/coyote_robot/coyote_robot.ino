@@ -50,6 +50,11 @@
 #define ENC_R_A 3
 #define ENC_R_B 8
 
+// ===================== Fallback for digitalPinToInterrupt =====================
+#ifndef digitalPinToInterrupt
+  #define digitalPinToInterrupt(p) ((p) == 2 ? 0 : ((p) == 3 ? 1 : -1))
+#endif
+
 // ============= Constants =============
 #define PULSES_PER_REV 330.0f
 #define WHEEL_RADIUS 0.03f   // 3 cm
