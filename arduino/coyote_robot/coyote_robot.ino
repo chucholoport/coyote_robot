@@ -39,16 +39,16 @@
 
 // ============= Pin Configuration =============
 #define ENA 5      // PWM Left Motor
-#define IN1 6
-#define IN2 7
-#define ENB 9      // PWM Right Motor
+#define IN1 8
+#define IN2 9
+#define ENB 6      // PWM Right Motor
 #define IN3 10
 #define IN4 11
 
 #define ENC_L_A 2
 #define ENC_L_B 4
 #define ENC_R_A 3
-#define ENC_R_B 8
+#define ENC_R_B 12
 
 // ===================== Fallback for digitalPinToInterrupt =====================
 #ifndef digitalPinToInterrupt
